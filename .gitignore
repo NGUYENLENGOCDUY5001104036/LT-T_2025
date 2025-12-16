@@ -1,0 +1,59 @@
+# Tệp .gitignore cho các dự án Web/Node/JavaScript
+
+# ====================
+# 1. NODE / NPM
+# ====================
+
+# Thư mục chứa tất cả các thư viện và dependencies
+/node_modules
+
+# Log file
+npm-debug.log
+.npm-debug.log
+.pnpm-debug.log
+
+# Build output
+/dist
+/build
+/out
+
+# ====================
+# 2. Hệ điều hành và IDE
+# ====================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Visual Studio Code (VS Code)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (IntelliJ, WebStorm, etc.)
+.idea/
+
+# ====================
+# 3. Tệp tạm thời và Dữ liệu nhạy cảm
+# ====================
+
+# Tệp tạm thời của các trình chỉnh sửa
+*~
+# Tệp sao lưu
+*.bak
+
+# Tệp dữ liệu người dùng được tải lên (nếu có logic upload)
+# (Đây là dữ liệu có thể thay đổi và không nên nằm trong Source Control)
+/uploads
+
+# Tệp cấu hình nhạy cảm (nếu có)
+# Ví dụ: Mật khẩu, API keys
+.env
+.env.local
+.env.*.local

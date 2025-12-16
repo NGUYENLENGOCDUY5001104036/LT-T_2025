@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipColor - Tối ưu hóa lộ trình giao hàng</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="models.js"></script>
+    
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>🚚 ShipColor - Tối ưu hóa lịch trình giao hàng</h1>
+        <p>Ứng dụng tô màu đồ thị để sắp xếp lịch trình giao hàng hiệu quả</p>
+    </header>
+
+    <div class="toolbar">
+        <input type="file" id="fileInput" class="file-input" accept=".xlsx,.xls,.csv">
+        <label for="fileInput" class="file-label">
+            📁 Upload Data (Excel)
+        </label>
+        <button class="btn btn-secondary" id="buildGraphBtn">
+            🔨 Build Graph
+        </button>
+        <button class="btn btn-success" id="runColoringBtn">
+            🎨 Run Coloring
+        </button>
+        <button class="btn btn-primary" id="stepByStepBtn">
+            ⏯️ Step-by-Step
+        </button>
+        <button class="btn btn-export" id="exportBtn">
+            💾 Export
+        </button>
+        <button class="btn btn-export" id="exportBtn">
+            💾 Export
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="visualization-section">
+            <div class="viz-header">
+                <h2>Visualization</h2>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="map">🗺️ MapView</button>
+                    <button class="tab-btn" data-tab="graph">📊 GraphView</button>
+                </div>
+            </div>
+            
+            <div class="viz-canvas" id="vizCanvas">
+                <div class="viz-placeholder">
+                    <div style="font-size: 4rem;">📍</div>
+                    <p>Tải dữ liệu và xây dựng đồ thị để hiển thị</p>
+                </div>
+            </div>
+
+            <div class="simulation-controls" id="simControls">
+                <button class="control-btn" id="playBtn">▶️ Play</button>
+                <button class="control-btn" id="pauseBtn" disabled>⏸️ Pause</button>
+                <button class="control-btn" id="nextBtn">⏭️ Next</button>
+            </div>
+        </div>
+
+        <div class="info-panels">
+            <div class="panel">
+                <div class="panel-header">⚠️ Xung đột phát hiện</div>
+                <div class="panel-content" id="conflictsPanel">
+                    <div class="empty-state">Chưa có dữ liệu xung đột</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">✅ Kết quả</div>
+                <div class="panel-content" id="resultsPanel">
+                    <div class="empty-state">Chưa chạy thuật toán</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">📋 Chi tiết phân bổ</div>
+                <div class="panel-content" id="detailsPanel">
+                    <div class="empty-state">Chưa có kết quả phân bổ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
